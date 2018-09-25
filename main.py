@@ -6,11 +6,10 @@ app.config['DEBUG'] = True
 
 form = """
     <!DOCTYPE html>
-    
-    <html>
-        <head>
-            <style>
-                form {{
+<html>
+    <head>
+        <style>
+            form {{
                 background-color: #eee;
                 padding: 20px;
                 margin: 0 auto;
@@ -26,19 +25,15 @@ form = """
         </style>
     </head>
     <body>
-        <form action="/" method="POST">
-            <label for="rot">
-                Rotate by:
-                <input type="text" for="rot" id="rot" name="rot" value="0"/>
-            </label>
-            <textarea name="text" for="text" id="text">
-            {0}
-            </textarea>
-            <input type="submit" value="Submit Query"/>
-        </form>
+      <form action="/encrypt" method="POST">
+        <label for ="rot">Rotate By:</label>
+        <input type="text" name="rot" value="0"> </input>
+        <textarea name="text">{0}</textarea>
+        <input type="submit" />
     </body>
 </html>
 """
+
 @app.route("/encrypt", methods=['POST'])
 def encrypt():
     rot = request.form['rot']
